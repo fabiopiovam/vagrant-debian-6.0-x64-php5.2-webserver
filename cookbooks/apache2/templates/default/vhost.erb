@@ -1,0 +1,63 @@
+<% @sites_available.each do |website| %>
+<VirtualHost *:80>
+  ServerName <%= website[:server_name] %>
+  ServerAdmin <%= @server_admin %>
+
+  ## Vhost docroot
+  DocumentRoot <%= @doc_root %>/<%= website[:doc_root] %>
+
+  <Directory <%= @doc_root %>/<%= website[:doc_root] %>>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  ## Logging
+  ErrorLog /var/log/apache2/default_error.log
+  LogLevel warn
+  ServerSignature Off
+  CustomLog /var/log/apache2/access.log combined
+
+
+  ## Script alias directives
+  ScriptAlias /cgi-bin/ "/usr/lib/cgi-bin/"
+  <Directory "/usr/lib/cgi-bin">
+    AllowOverride None
+    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>
+<% end %>
+
+<VirtualHost *:80>
+  ServerName <%= @server_name %>
+  ServerAdmin <%= @server_admin %>
+
+  ## Vhost docroot
+  DocumentRoot <%= @doc_root %>
+
+  <Directory <%= @doc_root %>>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  ## Logging
+  ErrorLog /var/log/apache2/default_error.log
+  LogLevel warn
+  ServerSignature Off
+  CustomLog /var/log/apache2/access.log combined
+
+
+  ## Script alias directives
+  ScriptAlias /cgi-bin/ "/usr/lib/cgi-bin/"
+  <Directory "/usr/lib/cgi-bin">
+    AllowOverride None
+    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>
