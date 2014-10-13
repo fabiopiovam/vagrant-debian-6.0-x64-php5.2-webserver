@@ -57,4 +57,4 @@ Installation / Usage
 	]
     ```
 
-5. Finally, execute `vagrant up --provision`
+5. Finally, execute `vagrant up --provision` 
