@@ -5,4 +5,5 @@ name "recipe-list"
 run_list(
     "recipe[main]",
     "recipe[apache2]",
+    "recipe[mysql]",
 )

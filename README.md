@@ -39,7 +39,13 @@ Installation / Usage
   	end
     ```  
 
-3. Configure Apache2 default values of vhost in `cookbooks/apache2/recipes/default.rb`
+3. Configure the MySQL root password in `cookbooks/mysql/recipes/default.rb`
+
+    ``` ruby
+    mysql_root_pwd = "your-password"
+    ``` 
+
+4. Configure Apache2 default values of vhost in `cookbooks/apache2/recipes/default.rb`
 	
 	``` ruby
     node.default['apache']['server_name'] = "192.168.33.103"
@@ -47,7 +53,7 @@ Installation / Usage
 	node.default['apache']['doc_root'] = "/vagrant"
     ```
 	
-4. Configure the hosts and doc_roots of your websites in `cookbooks/apache2/recipes/sites_available.rb`
+5. Configure the hosts and doc_roots of your websites in `cookbooks/apache2/recipes/sites_available.rb`
 
 	``` ruby
     SITES_AVAILABLE = [
@@ -57,7 +63,7 @@ Installation / Usage
 	]
     ```
 
-5. Finally, execute `vagrant up --provision` 
+6. Finally, execute `vagrant up --provision` 
 
 Credits
 -------
