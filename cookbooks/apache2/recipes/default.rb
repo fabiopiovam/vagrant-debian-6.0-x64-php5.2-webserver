@@ -32,6 +32,9 @@ service "apache2" do
 end
 
 require File.expand_path("../sites_available.rb", __FILE__)
+if File.exist?(File.expand_path("../sites_available.local.rb", __FILE__))
+  require File.expand_path("../sites_available.local.rb", __FILE__)
+end
 
 template "/etc/apache2/sites-available/15-default.conf" do
   source "vhost.erb"
