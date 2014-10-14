@@ -1,7 +1,7 @@
 vagrant-debian-6.0-x64-php5.2-webserver
 =======================================
 
-My chef-solo cookbook with webserver configuration based in [wp-vagrant](https://github.com/laborautonomo/wp-vagrant) ( without wp :P )
+My chef-solo cookbook with webserver configuration based in [tierra/wordpress-php52](https://github.com/tierra/wp-vagrant) ( without wordpress :P )
 
 Recipes
 -------
@@ -58,3 +58,7 @@ Installation / Usage
     ```
 
 5. Finally, execute `vagrant up --provision` 
+
+Credits
+-------
+* [tierra/wordpress-php52](https://github.com/tierra/wp-vagrant)
